@@ -2,6 +2,8 @@ const fs = require("fs");
 const gulp = require("gulp");
 const replace = require("gulp-replace");
 
+const production = process.env.NODE_ENV === "production";
+
 function btoaUTF8(string, bomit) {
     return btoa((bomit ? "\xEF\xBB\xBF" : "") + string.replace(/[\x80-\uD7ff\uDC00-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]?/g, function(nonAsciiChars) {
         const fromCharCode = String.fromCharCode;
@@ -35,11 +37,23 @@ function btoaUTF8(string, bomit) {
 }
 
 async function html() {
-    const inliner = await import("glectron-inliner");
-    return inliner.default("html/index.html").then((val) => {
+    if (production) {
+        const inliner = await import("glectron-inliner");
+        return inliner.default("html/index.html").then((val) => {
+            if (!fs.existsSync("dist")) fs.mkdirSync("dist");
+            fs.writeFileSync("dist/app.html", val, "utf-8");
+        });
+    } else {
+        const relocator = await import("glectron-asset-relocator");
         if (!fs.existsSync("dist")) fs.mkdirSync("dist");
-        fs.writeFileSync("dist/app.html", val, "utf-8");
-    });
+        if (fs.existsSync("dist/relocated")) fs.rmSync("dist/relocated", { recursive: true, force: true });
+        fs.mkdirSync("dist/relocated");
+        return relocator.default("html/index.html", {
+            relocateDir: "dist/relocated"
+        }).then((val) => {
+            fs.writeFileSync("dist/app.html", "<!-- " + new Date().valueOf() + " -->" + val, "utf-8");
+        });
+    }
 }
 
 function lua() {

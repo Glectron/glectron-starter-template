@@ -14,7 +14,8 @@
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
-    "glectron-inliner": "https://github.com/Glectron/glectron-inliner#ed9bdf85bef56c6f3f4477c397d6919a983919bd",
+    "glectron-asset-relocator": "https://github.com/Glectron/glectron-asset-relocator#f4ef2a42f8f4d3b9a1368ba773448a3aecb90291",
+    "glectron-inliner": "https://github.com/Glectron/glectron-inliner#bec38dff55ccdb7861cfec530cfb40728aa7ebaa",
     "gulp": "^4.0.2",
     "gulp-replace": "^1.1.4"
   }
