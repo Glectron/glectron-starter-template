@@ -10,7 +10,7 @@
     "build": "cross-env NODE_ENV=production gulp",
     "build:dev": "gulp",
     "watch": "cross-env NODE_ENV=production gulp watch",
-    "watch:dev": "cross-env NODE_ENV=production gulp watch"
+    "watch:dev": "gulp watch"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
