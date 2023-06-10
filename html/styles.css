@@ -1,0 +1,29 @@
+#window {
+    visibility: hidden;
+    width: 70vw;
+    height: 50vw;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+}
+
+#titlebar, #content {
+    padding: 0 10px;
+}
+
+#titlebar {
+    color: white;
+    background-color: rgb(40, 40, 40);
+    display: flex;
+}
+
+#titlebar h1 {
+    font-family: 'Courier New', Courier, monospace;
+    flex: 1;
+    pointer-events: none;
+}
+
+#content {
+    flex: 1;
+}

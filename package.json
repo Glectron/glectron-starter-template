@@ -1,0 +1,21 @@
+{
+  "name": "glectron-example-app",
+  "version": "1.0.0",
+  "description": "A example Glectron application",
+  "main": "gulpfile.js",
+  "author": "LuoRain",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build": "cross-env NODE_ENV=production gulp",
+    "build:dev": "gulp",
+    "watch": "cross-env NODE_ENV=production gulp watch",
+    "watch:dev": "cross-env NODE_ENV=production gulp watch"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "glectron-inliner": "https://github.com/Glectron/glectron-inliner#ed9bdf85bef56c6f3f4477c397d6919a983919bd",
+    "gulp": "^4.0.2",
+    "gulp-replace": "^1.1.4"
+  }
+}

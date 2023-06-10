@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>example</title>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+    <div id="window">
+        <div id="titlebar">
+            <h1>Example</h1>
+            <button onclick="closeWnd()" class="no-drag">×</button>
+        </div>
+        <div id="content">
+            <p>This is a Glectron example application.</p>
+            <p>Designed for Chromium environment.</p>
+            <p>Here's an image of earth for you.</p>
+            <img src="earth.png" alt="Earth">
+            <p><button onclick="dMsg('Hello from Glectron', 'Hello', 'OK')">Press me for a test Derma_Message</button></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
