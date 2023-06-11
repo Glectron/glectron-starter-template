@@ -1,7 +1,8 @@
 const wnd = document.querySelector("#window");
 const titlebar = document.querySelector("#titlebar");
 
-let offsetX, offsetY, beforeRect, topOff, leftOff, rightOff, bottomOff;
+let offsetX, offsetY
+let beforeRect, topOff, leftOff, rightOff, bottomOff, lastWidth, lastHeight;
 let dragWnd = false, resizeWnd = false;
 
 addEventListener("popup", () => {
@@ -24,8 +25,8 @@ addEventListener("capturemouserelease", () => {
     dragWnd = resizeWnd = false;
 });
 
-const minHeight = 0;
 const minWidth = 0;
+const minHeight = 0;
 
 addEventListener("globalmousemove", (e) => {
     if (dragWnd) {
@@ -35,28 +36,34 @@ addEventListener("globalmousemove", (e) => {
         const dirs = wnd.style.cursor.split("-")[0];
         if (dirs.indexOf("n") != -1) {
             let nTop = e.detail.y - topOff;
-            if (beforeRect.bottom - nTop > minHeight) {
+            let nHeight = beforeRect.bottom - nTop
+            if (nHeight > minHeight || nHeight > lastHeight) {
                 wnd.style.top = nTop + "px";
-                wnd.style.height = beforeRect.bottom - nTop + "px";
+                wnd.style.height = nHeight + "px";
+                lastHeight = nHeight;
             }
         }
         if (dirs.indexOf("w") != -1) {
             let nLeft = e.detail.x - leftOff;
-            if (beforeRect.right - nLeft > minWidth) {
+            let nWidth = beforeRect.right - nLeft;
+            if (nWidth > minWidth || nWidth > lastWidth) {
                 wnd.style.left = nLeft + "px";
-                wnd.style.width = beforeRect.right - nLeft + "px";
+                wnd.style.width = nWidth + "px";
+                lastWidth = nWidth;
             }
         }
         if (dirs.indexOf("s") != -1) {
             let nHeight = e.detail.y + bottomOff - beforeRect.top;
-            if (nHeight > minHeight) {
+            if (nHeight > minHeight || nHeight > lastHeight) {
                 wnd.style.height = nHeight + "px";
+                lastHeight = nHeight;
             }
         }
         if (dirs.indexOf("e") != -1) {
             let nWidth = e.detail.x + rightOff - beforeRect.left;
-            if (nWidth > minWidth) {
+            if (nWidth > minWidth || nWidth > lastWidth) {
                 wnd.style.width = nWidth + "px";
+                lastWidth = nWidth;
             }
         }
     }
@@ -77,7 +84,7 @@ titlebar.addEventListener("mousedown", (e) => {
     glectron.globalMouseMove(true);
 });
 
-const resizeDist = 3;
+const resizeDist = 5;
 
 wnd.addEventListener("mousemove", (e) => {
     if (dragWnd || resizeWnd) return;
@@ -126,6 +133,8 @@ wnd.addEventListener("mousedown", (e) => {
     topOff = y - rect.y;
     rightOff = rect.right - x;
     bottomOff = rect.bottom - y;
+    lastWidth = rect.right - rect.left;
+    lastHeight = rect.bottom - rect.top;
     beforeRect = rect;
     glectron.globalMouseMove(true);
     glectron.mouseCapture(true);
