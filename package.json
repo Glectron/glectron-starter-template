@@ -13,9 +13,9 @@
     "watch:dev": "gulp watch"
   },
   "devDependencies": {
+    "@glectron/asset-relocator": "^1.0.0",
+    "@glectron/inliner": "^1.0.0",
     "cross-env": "^7.0.3",
-    "glectron-asset-relocator": "https://github.com/Glectron/glectron-asset-relocator#f4ef2a42f8f4d3b9a1368ba773448a3aecb90291",
-    "glectron-inliner": "https://github.com/Glectron/glectron-inliner#bec38dff55ccdb7861cfec530cfb40728aa7ebaa",
     "gulp": "^4.0.2",
     "gulp-replace": "^1.1.4"
   }

@@ -2,6 +2,37 @@
 # yarn lockfile v1
 
 
+"@glectron/asset-relocator@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@glectron/asset-relocator/-/asset-relocator-1.0.0.tgz#d27687ec708a58fe858cfbd5ba1510f0bbed79e0"
+  integrity sha512-DeWZLIVDQi3o/IB/jg16lXitgM/kwS3Eb6Vfm80OstYi+vl7HZ0tTvfoxmZpExHPQMuh9SH5zpIgXvUtGpuouA==
+  dependencies:
+    "@glectron/asset-walker" "^1.0.0"
+    minimist "^1.2.8"
+    node-watch "^0.7.3"
+
+"@glectron/asset-walker@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@glectron/asset-walker/-/asset-walker-1.0.0.tgz#a9095550dca6f70a6587300a31fc4091d7af68bb"
+  integrity sha512-5+arBfR6CHF9Tj2Km2SLBQlsnNqxakBkgrknx/ciTENLgX94MAOM78cx+Z7kylExtQQqgJDIh6J1T3xjMov8aA==
+  dependencies:
+    "@minify-html/node" "^0.11.1"
+    css "^3.0.0"
+    node-html-parser "^6.1.5"
+
+"@glectron/inliner@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@glectron/inliner/-/inliner-1.0.0.tgz#03ab6e0a8b7a212ffc5ad14e59554d016aa8dde3"
+  integrity sha512-YGEW24m4fbw9j4W0hzRIGKUQdRQu1joz8jrhZzmLSRsKQ1S6rqlFajBuGULw0zE39s577cKHEqWo2WciiM8QZQ==
+  dependencies:
+    "@glectron/asset-walker" "^1.0.0"
+    cssnano "^6.0.1"
+    mime-types "^2.1.35"
+    minimist "^1.2.8"
+    node-watch "^0.7.3"
+    postcss "^8.4.24"
+    terser "^5.17.7"
+
 "@jridgewell/gen-mapping@^0.3.0":
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/@jridgewell/gen-mapping/-/gen-mapping-0.3.3.tgz#7e02e6eb5df901aaedb08514203b096614024098"
@@ -1039,34 +1070,6 @@ get-value@^2.0.3, get-value@^2.0.6:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/get-value/-/get-value-2.0.6.tgz#dc15ca1c672387ca76bd37ac0a395ba2042a2c28"
   integrity sha512-Ln0UQDlxH1BapMu3GPtf7CuYNwRZf2gwCuPqbyG6pB8WfmFpzqcy4xtAaAMUhnNqjMKTiCPZG2oMT3YSx8U2NA==
-
-"glectron-asset-relocator@https://github.com/Glectron/glectron-asset-relocator#f4ef2a42f8f4d3b9a1368ba773448a3aecb90291":
-  version "1.0.0"
-  resolved "https://github.com/Glectron/glectron-asset-relocator#f4ef2a42f8f4d3b9a1368ba773448a3aecb90291"
-  dependencies:
-    glectron-asset-walker "https://github.com/Glectron/glectron-asset-walker#8fb9190f6fc6a67ba5f39d5447ac79220e356e02"
-    minimist "^1.2.8"
-    node-watch "^0.7.3"
-
-"glectron-asset-walker@https://github.com/Glectron/glectron-asset-walker#8fb9190f6fc6a67ba5f39d5447ac79220e356e02":
-  version "1.0.0"
-  resolved "https://github.com/Glectron/glectron-asset-walker#8fb9190f6fc6a67ba5f39d5447ac79220e356e02"
-  dependencies:
-    "@minify-html/node" "^0.11.1"
-    css "^3.0.0"
-    node-html-parser "^6.1.5"
-
-"glectron-inliner@https://github.com/Glectron/glectron-inliner#bec38dff55ccdb7861cfec530cfb40728aa7ebaa":
-  version "1.0.0"
-  resolved "https://github.com/Glectron/glectron-inliner#bec38dff55ccdb7861cfec530cfb40728aa7ebaa"
-  dependencies:
-    cssnano "^6.0.1"
-    glectron-asset-walker "https://github.com/Glectron/glectron-asset-walker#8fb9190f6fc6a67ba5f39d5447ac79220e356e02"
-    mime-types "^2.1.35"
-    minimist "^1.2.8"
-    node-watch "^0.7.3"
-    postcss "^8.4.24"
-    terser "^5.17.7"
 
 glob-parent@^3.1.0:
   version "3.1.0"
