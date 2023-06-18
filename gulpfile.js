@@ -38,13 +38,13 @@ function btoaUTF8(string, bomit) {
 
 async function html() {
     if (production) {
-        const inliner = await import("glectron-inliner");
+        const inliner = await import("@glectron/inliner");
         return inliner.default("html/index.html").then((val) => {
             if (!fs.existsSync("dist")) fs.mkdirSync("dist");
             fs.writeFileSync("dist/app.html", val, "utf-8");
         });
     } else {
-        const relocator = await import("glectron-asset-relocator");
+        const relocator = await import("@glectron/asset-relocator");
         if (!fs.existsSync("dist")) fs.mkdirSync("dist");
         if (fs.existsSync("dist/relocated")) fs.rmSync("dist/relocated", { recursive: true, force: true });
         fs.mkdirSync("dist/relocated");
