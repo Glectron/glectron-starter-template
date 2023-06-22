@@ -3,15 +3,15 @@
 
 
 "@glectron/asset-relocator@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@glectron/asset-relocator/-/asset-relocator-1.0.0.tgz#d27687ec708a58fe858cfbd5ba1510f0bbed79e0"
-  integrity sha512-DeWZLIVDQi3o/IB/jg16lXitgM/kwS3Eb6Vfm80OstYi+vl7HZ0tTvfoxmZpExHPQMuh9SH5zpIgXvUtGpuouA==
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@glectron/asset-relocator/-/asset-relocator-1.0.1.tgz#4e2ccf34f2bc187ca7d46d0a94b568beb16b27bb"
+  integrity sha512-+HIehTF1R9pM315zTmAhC434yc8SP6ZKyvh4K3CM5aVlDzCH8jf8Pbc1f0XiLNwtduO6t2R8DyLt95QxSP///w==
   dependencies:
-    "@glectron/asset-walker" "^1.0.0"
+    "@glectron/asset-walker" "^1.0.1"
     minimist "^1.2.8"
     node-watch "^0.7.3"
 
-"@glectron/asset-walker@^1.0.0":
+"@glectron/asset-walker@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@glectron/asset-walker/-/asset-walker-1.0.1.tgz#5b0b1957fa55b43d801ebacfcde7b1b35af8ea9f"
   integrity sha512-gZOzJGuHGMEHywA96mQrxozP/KlV4Zwqn4ZrADKJVa5sJlvJt9g8D7zgHYB/pZSkAx5+zKjAX7wTUBU7Q+aW7A==
@@ -21,11 +21,11 @@
     node-html-parser "^6.1.5"
 
 "@glectron/inliner@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@glectron/inliner/-/inliner-1.0.0.tgz#03ab6e0a8b7a212ffc5ad14e59554d016aa8dde3"
-  integrity sha512-YGEW24m4fbw9j4W0hzRIGKUQdRQu1joz8jrhZzmLSRsKQ1S6rqlFajBuGULw0zE39s577cKHEqWo2WciiM8QZQ==
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@glectron/inliner/-/inliner-1.0.1.tgz#f4432d33f24f2c001699a68da86d7a59c8bb411a"
+  integrity sha512-yS6UGkRuuCxKc7zfC/HdTYkwB+w56YqdFAxL/MnShoTjpt2MrYTaq4cGxvatJET/jNR5PnMeHR93m8JsraesbA==
   dependencies:
-    "@glectron/asset-walker" "^1.0.0"
+    "@glectron/asset-walker" "^1.0.1"
     cssnano "^6.0.1"
     mime-types "^2.1.35"
     minimist "^1.2.8"

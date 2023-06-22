@@ -59,7 +59,11 @@ function injectGlectronLibraries(html) {
 async function html() {
     if (production) {
         const inliner = await import("@glectron/inliner");
-        return inliner.default("html/index.html").then((val) => {
+        return inliner.default("html/index.html", {
+            minifyHtml: true,
+            minifyCss: true,
+            minifyJs: true
+        }).then((val) => {
             if (!fs.existsSync("dist")) fs.mkdirSync("dist");
             fs.writeFileSync("dist/app.html", injectGlectronLibraries(val), "utf-8");
         });
