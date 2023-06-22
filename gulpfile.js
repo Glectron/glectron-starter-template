@@ -1,6 +1,8 @@
 const fs = require("fs");
+const path = require("path");
 const gulp = require("gulp");
 const replace = require("gulp-replace");
+const htmlParser = require("node-html-parser");
 
 const production = process.env.NODE_ENV === "production";
 
@@ -36,12 +38,30 @@ function btoaUTF8(string, bomit) {
     }));
 }
 
+function injectGlectronLibraries(html) {
+    const el = htmlParser.parse(html);
+    el.querySelectorAll("script[glectron-lib]").forEach((script) => {
+        const name = script.getAttribute("glectron-lib");
+        const package = "@glectron/" + name;
+        const packageDir = path.join(__dirname, "node_modules", package);
+        const pkgInfo = JSON.parse(fs.readFileSync(path.join(packageDir, "package.json"), "utf-8"));
+        if (pkgInfo.browser) {
+            const content = fs.readFileSync(path.join(packageDir, pkgInfo.browser), "utf-8");
+            script.removeAttribute("glectron-lib");
+            script.set_content(content.trim());
+        } else {
+            console.warn(`Package ${name} doesn't contain a browser library. Ignoring`);
+        }
+    });
+    return el.toString();
+}
+
 async function html() {
     if (production) {
         const inliner = await import("@glectron/inliner");
         return inliner.default("html/index.html").then((val) => {
             if (!fs.existsSync("dist")) fs.mkdirSync("dist");
-            fs.writeFileSync("dist/app.html", val, "utf-8");
+            fs.writeFileSync("dist/app.html", injectGlectronLibraries(val), "utf-8");
         });
     } else {
         const relocator = await import("@glectron/asset-relocator");
@@ -51,7 +71,7 @@ async function html() {
         return relocator.default("html/index.html", {
             relocateDir: "dist/relocated"
         }).then((val) => {
-            fs.writeFileSync("dist/app.html", "<!-- " + new Date().valueOf() + " -->" + val, "utf-8");
+            fs.writeFileSync("dist/app.html", "<!-- " + new Date().valueOf() + " -->" + injectGlectronLibraries(val), "utf-8");
         });
     }
 }

@@ -15,8 +15,10 @@
   "devDependencies": {
     "@glectron/asset-relocator": "^1.0.0",
     "@glectron/inliner": "^1.0.0",
+    "@glectron/ui": "^0.0.2",
     "cross-env": "^7.0.3",
     "gulp": "^4.0.2",
-    "gulp-replace": "^1.1.4"
+    "gulp-replace": "^1.1.4",
+    "node-html-parser": "^6.1.5"
   }
 }
